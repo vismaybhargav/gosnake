@@ -1,4 +1,4 @@
-package main
+package grid
 
 type Grid struct {
 	width  int
@@ -6,8 +6,8 @@ type Grid struct {
 	board  [][]int
 }
 
-func (g Grid) New(width, height int) *Grid {
-	return &Grid{
+func (g Grid) New(width, height int) Grid {
+	return Grid{
 		width:  width,
 		height: height,
 		board:  CreateGridBoard(width, height),
