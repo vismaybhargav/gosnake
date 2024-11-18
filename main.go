@@ -5,11 +5,29 @@ import (
 	tea "github.com/charmbracelet/bubbletea"
 )
 
+const WIDTH = 10
+const HEIGHT = 10
+
 func main() {
-	p := tea.NewProgram()
 	fmt.Println("Hello World")
 }
 
-func InitModel() Model {
-	return Game{}
+func InitModel() *Game {
+	return &Game{
+		grid:      Grid{}.New(WIDTH, HEIGHT),
+		appleX:    2,
+		appleY:    2,
+		snakeX:    make([]int, WIDTH*HEIGHT),
+		snakeY:    make([]int, WIDTH*HEIGHT),
+		isRunning: false,
+	}
+}
+
+type Game struct {
+	grid      *Grid
+	appleX    int
+	appleY    int
+	snakeX    []int
+	snakeY    []int
+	isRunning bool
 }
